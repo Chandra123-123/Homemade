@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Homemade Pickles & Snacks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2E8B57 0%, #228B22 25%, #32CD32 50%, #90EE90 75%, #F0FFF0 100%);
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="80" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="60" r="1" fill="%23ffffff" opacity="0.2"/></svg>') repeat;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    header, footer {
+      background: rgba(139, 69, 19, 0.95);
+      backdrop-filter: blur(10px);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #2E8B57;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+      background: #2E8B57;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    section {
+      padding: 3rem;
+      max-width: 900px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    h2 {
+      color: #2E8B57;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+    }
+    
+    p {
+      line-height: 1.8;
+      color: #444;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .rating {
+      text-align: center;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #ffa500, #ff8c00);
+      border-radius: 15px;
+      color: white;
+    }
+    
+    .stars {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .review {
+      background: rgba(248, 249, 250, 0.8);
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 15px;
+      border-left: 5px solid #2E8B57;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .review:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .reviewer {
+      font-weight: 600;
+      color: #2E8B57;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .review .stars {
+      font-size: 1.2rem;
+      color: #ffa500;
+      margin: 0.5rem 0;
+    }
+    
+    @media (max-width: 768px) {
+      section { margin: 1rem; padding: 2rem; }
+      nav a { margin: 0 10px; font-size: 0.9rem; }
+      h2 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Homemade Pickles & Snacks</h1>
+  </header>
+
+  <nav>
+    <a href="/home">Home</a>
+    <a href="/veg_pickles">Veg Pickles</a>
+    <a href="/non_veg_pickles">Non-Veg Pickles</a>
+    <a href="/snacks">Snacks</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <section>
+    <h2>Our Story</h2>
+    <p>
+      Born in the heart of a small kitchen, Homemade Pickles & Snacks was crafted out of love for authentic flavors passed down through generations. What began as weekend experiments with age-old recipes soon blossomed into a passion for preserving homemade taste in every jar and packet.
+    </p>
+    <p>
+      Every pickle we ferment and every snack we fry is made using carefully sourced ingredients and traditional techniques, ensuring freshness, hygiene, and a bold burst of nostalgia in every bite. From spicy mango pickles to crunchy murukulu, we bring you the essence of grandma’s kitchen—packaged with care.
+    </p>
+    <p>
+      Whether you're craving a spicy sidekick to your meal or a savory companion for your chai break, we’ve got something to tingle your taste buds and warm your heart.
+    </p>
+  </section>
+
+  <section>
+    <h2>Customer Reviews & Ratings</h2>
+    <div class="rating">
+      <div class="stars">★★★★★</div>
+      <p><strong>4.8/5</strong> based on 127 reviews</p>
+    </div>
+    
+    <div class="review">
+      <p class="reviewer">Priya S.</p>
+      <div class="stars">★★★★★</div>
+      <p>"Amazing mango pickle! Tastes exactly like my grandmother's recipe. Fresh and authentic flavors."</p>
+    </div>
+    
+    <div class="review">
+      <p class="reviewer">Rajesh K.</p>
+      <div class="stars">★★★★★</div>
+      <p>"Best murukulu I've had in years! Crispy and perfectly spiced. Will definitely order again."</p>
+    </div>
+    
+    <div class="review">
+      <p class="reviewer">Anita M.</p>
+      <div class="stars">★★★★☆</div>
+      <p>"Great quality pickles with traditional taste. Fast delivery and excellent packaging."</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Homemade Pickles & Snacks. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

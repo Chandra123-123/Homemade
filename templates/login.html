@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Homemade Pickles & Snacks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2E8B57 0%, #228B22 25%, #32CD32 50%, #90EE90 75%, #F0FFF0 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="80" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="60" r="1" fill="%23ffffff" opacity="0.2"/></svg>') repeat;
+      pointer-events: none;
+    }
+    
+    .login-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 24px;
+      padding: 3rem;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .brand-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    
+    .brand-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #8B4513, #D2691E);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+    }
+    
+    .brand-title {
+      color: #2E8B57;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .brand-subtitle {
+      color: #666;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .form-label {
+      display: block;
+      color: #2E8B57;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border: 2px solid #e1e5e9;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: #fafbfc;
+      color: #333;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #2E8B57;
+      background: white;
+      box-shadow: 0 0 0 4px rgba(46, 139, 87, 0.1);
+      transform: translateY(-1px);
+    }
+    
+    .login-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #2E8B57, #228B22);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 1rem;
+    }
+    
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(46, 139, 87, 0.3);
+      background: linear-gradient(135deg, #228B22, #2E8B57);
+    }
+    
+    .login-btn:active {
+      transform: translateY(0);
+    }
+    
+    .divider {
+      text-align: center;
+      margin: 2rem 0;
+      position: relative;
+      color: #999;
+      font-size: 0.9rem;
+    }
+    
+    .divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #e1e5e9;
+      z-index: -1;
+    }
+    
+    .divider span {
+      background: white;
+      padding: 0 1rem;
+    }
+    
+    .signup-link {
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .signup-link a {
+      color: #2E8B57;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    
+    .signup-link a:hover {
+      color: #228B22;
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 480px) {
+      .login-container {
+        margin: 1rem;
+        padding: 2rem;
+      }
+      
+      .brand-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="brand-header">
+      <div class="brand-icon">🥒</div>
+      <h1 class="brand-title">Welcome Back</h1>
+      <p class="brand-subtitle">Sign in to your pickle paradise</p>
+    </div>
+    
+    <div id="loginError" style="background: #ffe6e6; color: #d63031; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center; display: none;"></div>
+    
+    <form id="loginForm" action="/login" method="post">
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address</label>
+        <input class="form-input" type="email" id="email" name="email" required placeholder="Enter your email">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-input" type="password" id="password" name="password" required placeholder="Enter your password">
+      </div>
+      
+      <button type="submit" class="login-btn">Sign In</button>
+    </form>
+    
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const errorDiv = document.getElementById('loginError');
+        
+        // Check if user exists in localStorage
+        const userData = localStorage.getItem('user_' + email);
+        
+        if (userData) {
+          const user = JSON.parse(userData);
+          if (user.password === password) {
+            window.location.href = '/home';
+          } else {
+            errorDiv.textContent = 'Invalid email or password';
+            errorDiv.style.display = 'block';
+          }
+        } else {
+          errorDiv.textContent = 'User not found. Please sign up first.';
+          errorDiv.style.display = 'block';
+        }
+      });
+    </script>
+    
+    <div class="divider">
+      <span>New to our kitchen?</span>
+    </div>
+    
+    <div class="signup-link">
+      <a href="/signup">Create your account</a>
+    </div>
+  </div>
+  
+
+</body>
+</html>

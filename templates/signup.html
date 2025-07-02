@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Homemade Pickles & Snacks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2E8B57 0%, #228B22 25%, #32CD32 50%, #90EE90 75%, #F0FFF0 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow-x: hidden;
+      padding: 2rem 1rem;
+    }
+    
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="80" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="60" r="1" fill="%23ffffff" opacity="0.2"/></svg>') repeat;
+      pointer-events: none;
+    }
+    
+    .signup-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 24px;
+      padding: 3rem;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .brand-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    
+    .brand-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #8B4513, #D2691E);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+    }
+    
+    .brand-title {
+      color: #2E8B57;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .brand-subtitle {
+      color: #666;
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+      position: relative;
+      flex: 1;
+    }
+    
+    .form-label {
+      display: block;
+      color: #2E8B57;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border: 2px solid #e1e5e9;
+      border-radius: 12px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: #fafbfc;
+      color: #333;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #2E8B57;
+      background: white;
+      box-shadow: 0 0 0 4px rgba(46, 139, 87, 0.1);
+      transform: translateY(-1px);
+    }
+    
+    .password-strength {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: #666;
+    }
+    
+    .strength-bar {
+      height: 4px;
+      background: #e1e5e9;
+      border-radius: 2px;
+      margin-top: 0.3rem;
+      overflow: hidden;
+    }
+    
+    .strength-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ff4757, #ffa502, #2ed573);
+      transition: width 0.3s ease;
+    }
+    
+    .signup-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, #2E8B57, #228B22);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 1rem;
+    }
+    
+    .signup-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(46, 139, 87, 0.3);
+      background: linear-gradient(135deg, #228B22, #2E8B57);
+    }
+    
+    .signup-btn:active {
+      transform: translateY(0);
+    }
+    
+    .divider {
+      text-align: center;
+      margin: 2rem 0;
+      position: relative;
+      color: #999;
+      font-size: 0.9rem;
+    }
+    
+    .divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: #e1e5e9;
+      z-index: -1;
+    }
+    
+    .divider span {
+      background: white;
+      padding: 0 1rem;
+    }
+    
+    .login-link {
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    .login-link a {
+      color: #2E8B57;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    
+    .login-link a:hover {
+      color: #228B22;
+      text-decoration: underline;
+    }
+    
+    .error-message {
+      background: #ffe6e6;
+      color: #d63031;
+      padding: 0.8rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: none;
+    }
+    
+    @media (max-width: 480px) {
+      .signup-container {
+        margin: 1rem;
+        padding: 2rem;
+      }
+      
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .brand-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <div class="brand-header">
+      <div class="brand-icon">🥒</div>
+      <h1 class="brand-title">Join Our Kitchen</h1>
+      <p class="brand-subtitle">Create your account for authentic flavors</p>
+    </div>
+    
+    {% if error %}
+    <div style="background: #ffe6e6; color: #d63031; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">{{ error }}</div>
+    {% endif %}
+    
+    <div class="error-message" id="errorMessage"></div>
+    
+    <form id="signupForm" action="/signup" method="post">
+      <div class="form-group">
+        <label class="form-label" for="name">Full Name</label>
+        <input class="form-input" type="text" id="name" name="name" required placeholder="Enter your full name">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="email">Email Address</label>
+        <input class="form-input" type="email" id="email" name="email" required placeholder="Enter your email">
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-input" type="password" id="password" name="password" required placeholder="Create a password">
+        <div class="password-strength">
+          <div class="strength-bar">
+            <div class="strength-fill" id="strengthFill"></div>
+          </div>
+          <span id="strengthText">Password strength</span>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="form-label" for="confirmPassword">Confirm Password</label>
+        <input class="form-input" type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+      </div>
+      
+      <button type="submit" class="signup-btn">Create Account</button>
+    </form>
+    
+    <div class="divider">
+      <span>Already have an account?</span>
+    </div>
+    
+    <div class="login-link">
+      <a href="/">Sign in here</a>
+    </div>
+  </div>
+  
+  <script>
+    const passwordInput = document.getElementById('password');
+    const strengthFill = document.getElementById('strengthFill');
+    const strengthText = document.getElementById('strengthText');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    passwordInput.addEventListener('input', function() {
+      const password = this.value;
+      let strength = 0;
+      
+      if (password.length >= 8) strength += 25;
+      if (/[a-z]/.test(password)) strength += 25;
+      if (/[A-Z]/.test(password)) strength += 25;
+      if (/[0-9]/.test(password)) strength += 25;
+      
+      strengthFill.style.width = strength + '%';
+      
+      if (strength < 50) {
+        strengthText.textContent = 'Weak password';
+        strengthFill.style.background = '#ff4757';
+      } else if (strength < 75) {
+        strengthText.textContent = 'Medium password';
+        strengthFill.style.background = '#ffa502';
+      } else {
+        strengthText.textContent = 'Strong password';
+        strengthFill.style.background = '#2ed573';
+      }
+    });
+    
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      
+      if (password !== confirmPassword) {
+        errorMessage.textContent = 'Passwords do not match!';
+        errorMessage.style.display = 'block';
+        return;
+      }
+      
+      if (password.length < 8) {
+        errorMessage.textContent = 'Password must be at least 8 characters long!';
+        errorMessage.style.display = 'block';
+        return;
+      }
+      
+      // Store user data in localStorage
+      const userData = { name, email, password };
+      localStorage.setItem('user_' + email, JSON.stringify(userData));
+      
+      errorMessage.style.display = 'none';
+      window.location.href = '/';
+    });
+  </script>
+</body>
+</html>

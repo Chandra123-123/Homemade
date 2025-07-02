@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - Homemade Pickles & Snacks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2E8B57 0%, #228B22 25%, #32CD32 50%, #90EE90 75%, #F0FFF0 100%);
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="80" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="60" r="1" fill="%23ffffff" opacity="0.2"/></svg>') repeat;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    header, footer {
+      background: rgba(139, 69, 19, 0.95);
+      backdrop-filter: blur(10px);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2E8B57;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+      background: #2E8B57;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    th, td {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #e1e5e9;
+    }
+    
+    th {
+      background: linear-gradient(135deg, #2E8B57, #228B22);
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    td {
+      background: rgba(255, 255, 255, 0.8);
+    }
+    
+    .total {
+      font-weight: 700;
+      font-size: 1.3rem;
+      text-align: right;
+      margin: 2rem 0;
+      color: #2E8B57;
+      padding: 1rem;
+      background: rgba(46, 139, 87, 0.1);
+      border-radius: 12px;
+    }
+    
+    .checkout-button {
+      background: linear-gradient(135deg, #2E8B57, #228B22);
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      float: right;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .checkout-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46, 139, 87, 0.3);
+    }
+    
+    button {
+      background: #2E8B57;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    button:hover {
+      background: #228B22;
+      transform: translateY(-1px);
+    }
+    
+    @media (max-width: 768px) {
+      main { margin: 1rem; padding: 2rem; }
+      nav a { margin: 0 8px; font-size: 0.9rem; }
+      .checkout-button { float: none; width: 100%; margin-top: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Homemade Pickles & Snacks</h1>
+    <p>Your Cart</p>
+  </header>
+
+  <nav>
+    <a href="/home">Home</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items">
+        <!-- Cart items will be loaded here by JavaScript -->
+      </tbody>
+    </table>
+
+    <div class="total">
+      Total: ₹0
+    </div>
+
+    <button class="checkout-button" onclick="window.location.href='/checkout'">Proceed to Checkout</button>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Homemade Pickles & Snacks. All rights reserved.</p>
+  </footer>
+  <script>
+  function loadCartItems() {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const cartItemsContainer = document.getElementById('cart-items');
+    
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = '<tr><td colspan="4">Your cart is empty</td></tr>';
+      return;
+    }
+    
+    cartItemsContainer.innerHTML = cart.map(item => `
+      <tr data-price="${item.price}">
+        <td>${item.name}</td>
+        <td>
+          <button onclick="changeQty(this, -1)">−</button>
+          <span class="qty">${item.quantity}</span>
+          <button onclick="changeQty(this, 1)">+</button>
+        </td>
+        <td>₹${item.price}</td>
+        <td class="subtotal">₹${item.price * item.quantity}</td>
+      </tr>
+    `).join('');
+    
+    updateTotal();
+  }
+
+  function changeQty(button, delta) {
+    const row = button.closest("tr");
+    const qtySpan = row.querySelector(".qty");
+    let qty = parseInt(qtySpan.textContent);
+    const itemName = row.cells[0].textContent;
+
+    qty += delta;
+    if (qty < 0) return;
+
+    qtySpan.textContent = qty;
+
+    const price = parseInt(row.getAttribute("data-price"));
+    const subtotal = price * qty;
+    row.querySelector(".subtotal").textContent = `₹${subtotal}`;
+
+    // Update localStorage
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    let item = cart.find(item => item.name === itemName);
+    if (item) {
+      if (qty === 0) {
+        cart = cart.filter(item => item.name !== itemName);
+        row.remove();
+      } else {
+        item.quantity = qty;
+      }
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    updateTotal();
+  }
+
+  function updateTotal() {
+    const subtotals = document.querySelectorAll(".subtotal");
+    let total = 0;
+    subtotals.forEach(cell => {
+      total += parseInt(cell.textContent.replace("₹", ""));
+    });
+
+    document.querySelector(".total").textContent = `Total: ₹${total}`;
+  }
+  
+  // Load cart items on page load
+  window.onload = loadCartItems;
+</script>
+
+</body>
+</html>

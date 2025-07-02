@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snacks - Homemade Pickles & Snacks</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #FF8C00 0%, #FFA500 25%, #FFD700 50%, #FFFF99 75%, #FFFACD 100%);
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="80" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="60" r="1" fill="%23ffffff" opacity="0.2"/></svg>') repeat;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    header, footer {
+      background: rgba(139, 69, 19, 0.95);
+      backdrop-filter: blur(10px);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #FF8C00;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+      background: #FF8C00;
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    h2 {
+      color: #FF8C00;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 3rem;
+    }
+    
+    .snack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .snack-item {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .snack-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #FF8C00, #FFD700);
+    }
+    
+    .snack-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .snack-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 1rem;
+    }
+    
+    .snack-item h3 {
+      color: #FF8C00;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    .snack-item p {
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    
+    .price {
+      color: #8B4513;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 1rem 0;
+    }
+    
+    button {
+      background: linear-gradient(135deg, #FF8C00, #FFA500);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 140, 0, 0.3);
+    }
+    
+    @media (max-width: 768px) {
+      main { margin: 1rem; padding: 2rem; }
+      nav a { margin: 0 8px; font-size: 0.9rem; }
+      h2 { font-size: 2rem; }
+      .snack-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Homemade Pickles & Snacks</h1>
+    <p>South Indian Crunch & Munch Specials</p>
+  </header>
+
+  <nav>
+    <a href="/home">Home</a>
+    <a href="/veg_pickles">Veg Pickles</a>
+    <a href="/non_veg_pickles">Non-Veg Pickles</a>
+    <a href="/about">About</a>
+    <a href="/cart">Cart</a>
+    <a href="/contact">Contact</a>
+  </nav>
+
+  <main>
+    <h2>Our Handmade Snacks</h2>
+    <div class="snack-grid">
+      <div class="snack-item">
+        <img src="{{ url_for('static', filename='images/murukulu.jpg') }}" alt="masala murukulu">
+        <h3>Masala Murukulu</h3>
+        <p>Spicy and crunchy spirals made from rice flour and urad dal.</p>
+        <p><strong>Weight:</strong>100g</p>
+        <div class="price">₹80</div>
+        <button onclick="addToCart('Masala Murukulu', 80)">Add to Cart</button>
+      </div>
+      <div class="snack-item">
+        <img src="{{ url_for('static', filename='images/boondi.jpg') }}" alt="boondi">
+        <h3>Karam Boondi</h3>
+        <p>Golden crispy gram flour pearls seasoned with bold flavors.</p>
+        <p><strong>Weight:</strong>250g</p>
+        <div class="price">₹60</div>
+        <button onclick="addToCart('Karam Boondi', 60)">Add to Cart</button>
+      </div>
+      <div class="snack-item">
+        <img src="{{ url_for('static', filename='images/mixture.jpg') }}" alt="mixture">
+        <h3>Mixture</h3>
+        <p>A signature blend of sev, peanuts, curry leaves & spice.</p>
+        <p><strong>Weight:</strong>250g</p>
+        <div class="price">₹60</div>
+        <button onclick="addToCart('Mixture', 60)">Add to Cart</button>
+      </div>
+      <div class="snack-item">
+        <img src="{{ url_for('static', filename='images/chekkalu.jpg') }}" alt="Chekkalu">
+        <h3>Chekkalu</h3>
+        <p>Thin and savory rice crackers with hints of cumin and ginger.</p>
+        <p><strong>Weight:</strong>250g</p>
+        <div class="price">₹70</div>
+        <button onclick="addToCart('Chekkalu', 70)">Add to Cart</button>
+      </div>
+      <div class="snack-item">
+        <img src="{{ url_for('static', filename='images/kakinada kaja.jpg') }}" alt="Kakinada kaja">
+        <h3>Kakinada Kaja</h3>
+        <p>Thin and savory sweet layers with hints of sugar and chocolate.</p>
+        <p><strong>Weight:</strong>250g</p>
+        <div class="price">₹80</div>
+        <button onclick="addToCart('Kakinada Kaja', 80)">Add to Cart</button>
+      </div>
+      <div class="snack-item">
+        <img src="{{ url_for('static', filename='images/gulab jamun.jpg') }}" alt="Gulab jamun">
+        <h3>Gulab Jamun</h3>
+        <p>Soft and juicy jamun loaded with sweetness.</p>
+        <p><strong>Weight:</strong>250g</p>
+        <div class="price">₹85</div>
+        <button onclick="addToCart('Gulab Jamun', 85)">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Homemade Pickles & Snacks. All rights reserved.</p>
+  </footer>
+
+<script>
+function addToCart(itemName, price) {
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  let existingItem = cart.find(item => item.name === itemName);
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ name: itemName, price: price, quantity: 1 });
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert('Item added to cart!');
+}
+</script>
+
+</body>
+</html>
